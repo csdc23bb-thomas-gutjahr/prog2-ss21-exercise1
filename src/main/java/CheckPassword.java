@@ -29,6 +29,7 @@ public class CheckPassword {
     }
 
     public boolean checkLowerCase() {
+
         return true;
     }
 
