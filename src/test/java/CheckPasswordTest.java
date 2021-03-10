@@ -3,8 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class CheckPasswordTest {
 
@@ -22,7 +22,7 @@ public class CheckPasswordTest {
 
     public void testLengthPassword(){
         testPassword = new CheckPassword("HaseBlind"); //Define Password
-        Boolean actual = testPassword.calcLenght();
+        Boolean actual = testPassword.calcLenght(testPassword.getPassword());
         Boolean expected = true;
         assertEquals(actual,expected);
 
@@ -33,7 +33,7 @@ public class CheckPasswordTest {
 
     public void testToShortPassword(){
         testPassword = new CheckPassword("Hase"); //Define Password
-        assertFalse(testPassword.calcLenght());
+        assertFalse(testPassword.calcLenght(testPassword.getPassword()));
 
     }
 
@@ -42,7 +42,7 @@ public class CheckPasswordTest {
 
     public void testToLongPassword(){
         testPassword = new CheckPassword("HaseBlindAmSeeMitStockInDerHandOhneAugenschmausFliegtaufFlieger"); //Define Password
-        assertFalse(testPassword.calcLenght());
+        assertFalse(testPassword.calcLenght(testPassword.getPassword()));
 
     }
 
