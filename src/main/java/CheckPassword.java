@@ -27,4 +27,12 @@ public class CheckPassword {
             return false;
         }
     }
+
+    public boolean checkLowerCase() {
+        return true;
+    }
+
+    public boolean checkUpperCase() {
+        return true;
+    }
 }

@@ -46,5 +46,23 @@ public class CheckPasswordTest {
 
     }
 
+    @DisplayName("Testing Password have lower Character")
+    @Test
+
+    public void testLowerCharacter() {
+        testPassword = new CheckPassword("haseblind");
+        assertTrue(testPassword.checkLowerCase());
+
+    }
+
+    @DisplayName("Testing Password have Upper Character")
+    @Test
+
+    public void testUpperCharacter(){
+        testPassword = new CheckPassword("Haseblind");
+        assertTrue(testPassword.checkUpperCase());
+
+    }
+
 
 }
