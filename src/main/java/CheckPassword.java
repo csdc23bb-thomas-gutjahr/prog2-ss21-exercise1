@@ -55,4 +55,9 @@ public class CheckPassword {
         return textPatternDigit.matcher(this.password).find();
 
     }
+
+    public boolean checkSpecial() {
+
+        return textPatternSpecial.matcher(this.password).find();
+    }
 }
