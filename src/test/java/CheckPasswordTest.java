@@ -67,7 +67,7 @@ public class CheckPasswordTest {
     @DisplayName("Testing Password have Upper and Lower Character")
     @Test
 
-    public void testCaseSensitivCharacter(){
+    public void testCaseSensitiveCharacter(){
         testPassword = new CheckPassword("Haseblind");
         assertTrue(testPassword.checkUpperCase() && testPassword.checkUpperCase());
 
