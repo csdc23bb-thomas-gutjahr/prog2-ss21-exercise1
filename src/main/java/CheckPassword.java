@@ -3,8 +3,9 @@ import java.util.regex.Pattern;
 public class CheckPassword {
 
 
-    public final Pattern textPatternLower = Pattern.compile("(?=.[a-z])");
-    public final Pattern textPatternUpper = Pattern.compile("(?=.[A-Z])");
+    public final Pattern textPatternLower = Pattern.compile("(?=.*[a-z])");
+    public final Pattern textPatternUpper = Pattern.compile("(?=.*[A-Z])");
+    public final Pattern textPatternDigit = Pattern.compile("(?=.*[0-9])");
 
     String password;
 
@@ -39,9 +40,22 @@ public class CheckPassword {
         return textPatternLower.matcher(this.password).matches();
     }
 
-    public boolean checkUpperCase() {
+    public Boolean checkUpperCase() {
 
         return textPatternUpper.matcher(this.password).matches();
 
+    }
+
+    public Boolean checkDigit() {
+
+        char [] digits = this.password.toCharArray();
+
+        for (int i = 0 ; i < digits.length; i++){
+            if (digits[i] >= 48 && digits[i] <= 57 ){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
