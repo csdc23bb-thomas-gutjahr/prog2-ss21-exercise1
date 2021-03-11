@@ -7,6 +7,8 @@ public class CheckPassword {
     public final Pattern textPatternUpper = Pattern.compile("[A-Z]");
     public final Pattern textPatternDigit = Pattern.compile("[0-9]");
     public final Pattern textPatternSpecial = Pattern.compile("[()#$?!%/@]");
+    public final Pattern textPatternTwoDigitRow = Pattern.compile("(012|123|234|345|456|567|678|789)");
+    public final Pattern textPatternThreeDigitRow = Pattern.compile("\\d(\\d)\\1{3}");
 
     String password;
 
@@ -60,5 +62,16 @@ public class CheckPassword {
     public boolean checkSpecial() {
 
         return textPatternSpecial.matcher(this.password).find();
+    }
+
+
+    public boolean checkTwoNumbersInRow() {
+
+        return textPatternTwoDigitRow.matcher(this.password).find();
+    }
+
+    public boolean checkThreeDigitRow() {
+
+        return textPatternThreeDigitRow.matcher(this.password).find();
     }
 }

@@ -217,6 +217,36 @@ public class CheckPasswordTest {
 
     }
 
+    @DisplayName("Testing Password have no more than two numbers in a row ")
+    @Test
+
+    public void testNoTwoNumbersInRow(){
+        testPassword = new CheckPassword("Hase123456789");
+        assertTrue(testPassword.checkTwoNumbersInRow());
+
+    }
+
+    @DisplayName("Testing Password have more than two numbers in a row ")
+    @Test
+
+    public void testTwoNumbersInRow(){
+        testPassword = new CheckPassword("Hase12233445566777");
+        assertFalse(testPassword.checkTwoNumbersInRow());
+
+    }
+
+    @DisplayName("Testing Password have  more than two numbers in a row ")
+    @Test
+
+    public void testNoThreeDigitRow(){
+        testPassword = new CheckPassword("Hase12233445566777");
+        assertFalse(testPassword.checkThreeDigitRow());
+
+    }
+
+
+
+
 
 
 
