@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Repository Link https://github.com/csdc23bb-thomas-gutjahr/prog2-ss21-exercise1
 
 public class CheckPasswordTest {
 
@@ -235,11 +236,20 @@ public class CheckPasswordTest {
 
     }
 
-    @DisplayName("Testing Password have  more than two numbers in a row ")
+    @DisplayName("Testing Password have not more than three of the Same numbers in a row  ")
     @Test
 
     public void testNoThreeDigitRow(){
-        testPassword = new CheckPassword("Hase12233445566777");
+        testPassword = new CheckPassword("Hase112236788");
+        assertFalse(testPassword.checkThreeDigitRow());
+
+    }
+
+    @DisplayName("Testing Password have more than three of the Same numbers in a row ")
+    @Test
+
+    public void testThreeDigitRow(){
+        testPassword = new CheckPassword("Hase1111");
         assertFalse(testPassword.checkThreeDigitRow());
 
     }
