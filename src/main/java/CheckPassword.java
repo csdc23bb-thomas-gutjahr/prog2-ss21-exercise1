@@ -56,6 +56,7 @@ public class CheckPassword {
 
     }
 
+    //Method to Check if one Special is in
     public boolean checkSpecial() {
 
         return textPatternSpecial.matcher(this.password).find();
