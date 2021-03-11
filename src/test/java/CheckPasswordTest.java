@@ -50,8 +50,7 @@ public class CheckPasswordTest {
     @Test
 
     public void testLowerCharacter() {
-        testPassword = new CheckPassword("haseblind");
-        //boolean actual = testPassword.checkLowerCase(testPassword.getPassword());
+        testPassword = new CheckPassword("haseblinD");
         assertTrue(testPassword.checkLowerCase());
 
     }
@@ -60,7 +59,7 @@ public class CheckPasswordTest {
     @Test
 
     public void testUpperCharacter(){
-        testPassword = new CheckPassword("HASEBLIND");
+        testPassword = new CheckPassword("Haseblind");
         assertTrue(testPassword.checkUpperCase());
 
     }
@@ -80,6 +79,132 @@ public class CheckPasswordTest {
     public void testDigitNo(){
         testPassword = new CheckPassword("haseblind");
         assertFalse(testPassword.checkDigit());
+
+    }
+
+    @DisplayName("Testing Password have at least one Special Character")
+    @Test
+
+    public void testSpecial(){
+        testPassword = new CheckPassword("haseblind()#$?!%/@");
+        assertTrue(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have at no Special Character")
+    @Test
+
+    public void testSpecialNo(){
+        testPassword = new CheckPassword("haseblind");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character €")
+    @Test
+
+    public void testSpecialEuro(){
+        testPassword = new CheckPassword("€");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character +")
+    @Test
+
+    public void testSpecialPlus(){
+        testPassword = new CheckPassword("+");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character -")
+    @Test
+
+    public void testSpecialMinus(){
+        testPassword = new CheckPassword("-");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character ,")
+    @Test
+
+    public void testSpecialComma(){
+        testPassword = new CheckPassword(",");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character ;")
+    @Test
+
+    public void testSpecialSemiColon(){
+        testPassword = new CheckPassword(";");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character '")
+    @Test
+
+    public void testSpecialApostroph(){
+        testPassword = new CheckPassword(";");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character \\")
+    @Test
+
+    public void testSpecialBackSlash(){
+        testPassword = new CheckPassword("\\");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character _")
+    @Test
+
+    public void testSpecialUnderScore(){
+        testPassword = new CheckPassword("_");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character >")
+    @Test
+
+    public void testSpecialGreater(){
+        testPassword = new CheckPassword(">");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character <")
+    @Test
+
+    public void testSpecialLower(){
+        testPassword = new CheckPassword("<");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character |")
+    @Test
+
+    public void testSpecialPipe(){
+        testPassword = new CheckPassword("|");
+        assertFalse(testPassword.checkSpecial());
+
+    }
+
+    @DisplayName("Testing Password have wrong Special Character =")
+    @Test
+
+    public void testSpecialEuqal(){
+        testPassword = new CheckPassword("=");
+        assertFalse(testPassword.checkSpecial());
 
     }
 

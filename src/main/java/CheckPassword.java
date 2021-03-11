@@ -3,9 +3,10 @@ import java.util.regex.Pattern;
 public class CheckPassword {
 
 
-    public final Pattern textPatternLower = Pattern.compile("([a-z])");
-    public final Pattern textPatternUpper = Pattern.compile("(?=.*[A-Z])");
-    public final Pattern textPatternDigit = Pattern.compile("(?=.*[0-9])");
+    public final Pattern textPatternLower = Pattern.compile("[a-z]");
+    public final Pattern textPatternUpper = Pattern.compile("[A-Z]");
+    public final Pattern textPatternDigit = Pattern.compile("[0-9]");
+    public final Pattern textPatternSpecial = Pattern.compile("[()#$?!%/@]");
 
     String password;
 
@@ -25,7 +26,7 @@ public class CheckPassword {
     }
 
     //Method to Check the Lenght of the Generated Password it must be 8-25 Characters long
-    public Boolean calcLenght() {
+    public boolean calcLenght() {
         int lenght = this.password.length();
 
         if (lenght >= 8 && lenght <= 25)
@@ -35,27 +36,23 @@ public class CheckPassword {
         }
     }
 
-    public Boolean checkLowerCase() {
+    //Method to Check if one Lower Case is in
+    public boolean checkLowerCase() {
 
-        return textPatternLower.matcher(this.password).matches();
+        return textPatternLower.matcher(this.password).find();
     }
 
-    public Boolean checkUpperCase() {
+    //Method to Check if one Upper Case is in
+    public boolean checkUpperCase() {
 
-        return textPatternUpper.matcher(this.password).matches();
+        return textPatternUpper.matcher(this.password).find();
 
     }
 
-    public Boolean checkDigit() {
+    //Method to Check if one Digit is in
+    public boolean checkDigit() {
 
-        char [] digits = this.password.toCharArray();
+        return textPatternDigit.matcher(this.password).find();
 
-        for (int i = 0 ; i < digits.length; i++){
-            if (digits[i] >= 48 && digits[i] <= 57 ){
-                return true;
-            }
-        }
-
-        return false;
     }
 }
