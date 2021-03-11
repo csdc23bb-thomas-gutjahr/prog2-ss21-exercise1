@@ -46,11 +46,11 @@ public class CheckPasswordTest {
 
     }
 
-    @DisplayName("Testing Password have lower Character")
+    @DisplayName("Testing Password have Lower Character")
     @Test
 
     public void testLowerCharacter() {
-        testPassword = new CheckPassword("haseblinD");
+        testPassword = new CheckPassword("haseblind");
         assertTrue(testPassword.checkLowerCase());
 
     }
@@ -59,8 +59,17 @@ public class CheckPasswordTest {
     @Test
 
     public void testUpperCharacter(){
-        testPassword = new CheckPassword("Haseblind");
+        testPassword = new CheckPassword("HASEBLIND");
         assertTrue(testPassword.checkUpperCase());
+
+    }
+
+    @DisplayName("Testing Password have Upper and Lower Character")
+    @Test
+
+    public void testCaseSensitivCharacter(){
+        testPassword = new CheckPassword("Haseblind");
+        assertTrue(testPassword.checkUpperCase() && testPassword.checkUpperCase());
 
     }
 
