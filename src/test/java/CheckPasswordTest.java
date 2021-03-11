@@ -50,7 +50,7 @@ public class CheckPasswordTest {
     @Test
 
     public void testLowerCharacter() {
-        testPassword = new CheckPassword("abcdefghijklmnopqrstuvwxyz");
+        testPassword = new CheckPassword("haseblind");
         //boolean actual = testPassword.checkLowerCase(testPassword.getPassword());
         assertTrue(testPassword.checkLowerCase());
 
@@ -60,8 +60,26 @@ public class CheckPasswordTest {
     @Test
 
     public void testUpperCharacter(){
-        testPassword = new CheckPassword("Haseblind");
+        testPassword = new CheckPassword("HASEBLIND");
         assertTrue(testPassword.checkUpperCase());
+
+    }
+
+    @DisplayName("Testing Password have at least one Digit")
+    @Test
+
+    public void testDigitYes(){
+        testPassword = new CheckPassword("0123456789");
+        assertTrue(testPassword.checkDigit());
+
+    }
+
+    @DisplayName("Testing Password have no Digit")
+    @Test
+
+    public void testDigitNo(){
+        testPassword = new CheckPassword("haseblind");
+        assertFalse(testPassword.checkDigit());
 
     }
 
