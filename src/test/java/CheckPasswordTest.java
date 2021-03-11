@@ -240,7 +240,7 @@ public class CheckPasswordTest {
     @Test
 
     public void testNoThreeDigitRow(){
-        testPassword = new CheckPassword("Hase112236788");
+        testPassword = new CheckPassword("Hase111222326788");
         assertFalse(testPassword.checkThreeDigitRow());
 
     }
