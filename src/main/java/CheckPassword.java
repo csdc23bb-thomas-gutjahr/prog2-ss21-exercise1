@@ -1,4 +1,10 @@
+import java.util.regex.Pattern;
+
 public class CheckPassword {
+
+
+    public final Pattern textPatternLower = Pattern.compile("(?=.[a-z])");
+    public final Pattern textPatternUpper = Pattern.compile("(?=.[A-Z])");
 
     String password;
 
@@ -18,8 +24,8 @@ public class CheckPassword {
     }
 
     //Method to Check the Lenght of the Generated Password it must be 8-25 Characters long
-    public Boolean calcLenght(String password) {
-        int lenght = password.length();
+    public Boolean calcLenght() {
+        int lenght = this.password.length();
 
         if (lenght >= 8 && lenght <= 25)
             return true;
@@ -28,12 +34,14 @@ public class CheckPassword {
         }
     }
 
-    public boolean checkLowerCase() {
+    public Boolean checkLowerCase() {
 
-        return true;
+        return textPatternLower.matcher(this.password).matches();
     }
 
     public boolean checkUpperCase() {
-        return true;
+
+        return textPatternUpper.matcher(this.password).matches();
+
     }
 }

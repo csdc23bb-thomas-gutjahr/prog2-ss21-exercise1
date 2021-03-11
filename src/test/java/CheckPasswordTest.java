@@ -22,7 +22,7 @@ public class CheckPasswordTest {
 
     public void testLengthPassword(){
         testPassword = new CheckPassword("HaseBlind"); //Define Password
-        Boolean actual = testPassword.calcLenght(testPassword.getPassword());
+        Boolean actual = testPassword.calcLenght();
         Boolean expected = true;
         assertEquals(actual,expected);
 
@@ -33,7 +33,7 @@ public class CheckPasswordTest {
 
     public void testToShortPassword(){
         testPassword = new CheckPassword("Hase"); //Define Password
-        assertFalse(testPassword.calcLenght(testPassword.getPassword()));
+        assertFalse(testPassword.calcLenght());
 
     }
 
@@ -42,7 +42,7 @@ public class CheckPasswordTest {
 
     public void testToLongPassword(){
         testPassword = new CheckPassword("HaseBlindAmSeeMitStockInDerHandOhneAugenschmausFliegtaufFlieger"); //Define Password
-        assertFalse(testPassword.calcLenght(testPassword.getPassword()));
+        assertFalse(testPassword.calcLenght());
 
     }
 
@@ -50,7 +50,8 @@ public class CheckPasswordTest {
     @Test
 
     public void testLowerCharacter() {
-        testPassword = new CheckPassword("haseblind");
+        testPassword = new CheckPassword("abcdefghijklmnopqrstuvwxyz");
+        //boolean actual = testPassword.checkLowerCase(testPassword.getPassword());
         assertTrue(testPassword.checkLowerCase());
 
     }
